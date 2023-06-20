@@ -7,7 +7,7 @@
  */
 void opcode_push(stack_t **stack, unsigned int line_number)
 {
-	char *arg;
+	char *arg = info_f.arg;
 	int value;
 
 	arg = strtok(NULL, MONTY_DELIMS);
