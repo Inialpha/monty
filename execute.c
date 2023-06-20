@@ -10,7 +10,7 @@ void execute(stack_t *stack, unsigned int line_num)
 {
 	int i;
 	instruction_t op[] = {
-		{"pint", pint}, {"pall", pall}, {NULL, NULL}};
+		{"pop", pop}, {"pint", pint}, {"pall", pall}, {NULL, NULL}};
 
 	for (i = 0; op[i].opcode && info_f.opcode; i++)
 	{
