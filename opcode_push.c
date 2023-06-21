@@ -13,6 +13,8 @@ void push(stack_t **stack, unsigned int line_number)
 	if (arg == NULL || !is_integer(arg))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		free_stack(stack);
+		fclose(info_f.file);
 		exit(EXIT_FAILURE);
 	}
 
@@ -33,6 +35,8 @@ void push_stack(stack_t **stack, int value)
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_stack(stack);
+		fclose(info_f.file);
 		exit(EXIT_FAILURE);
 	}
 
