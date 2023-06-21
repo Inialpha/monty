@@ -26,6 +26,7 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
+	info_f.file = file;
 	readline(stack, file);
 
 	fclose(file);
@@ -47,6 +48,8 @@ void readline(stack_t *stack, FILE *file)
 	{
 		info_f.line_num = counter;
 		perser(content);
+		if (info_f.opcode[0] == '#')
+			continue;
 		execute(&stack, counter);
 		info_f.content = content;
 		counter++;

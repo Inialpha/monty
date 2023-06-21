@@ -21,3 +21,36 @@ void pint(stack_t **stack, unsigned int line_num)
 
 	printf("%d\n", temp->n);
 }
+
+
+
+/**
+ * pchar - prints the top node of the stack as a char
+ * @stack: pointer to the top of the stack
+ * @line_num: line index
+ */
+
+void pchar(stack_t **stack, unsigned int line_num)
+{
+	stack_t *temp = *stack;
+
+	(void)line_num;
+	if (stack == NULL || *stack == NULL)
+	{
+		fprintf(stderr, "L%d: can't pchar, stack empty\n", line_num);
+		fclose(info_f.file);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
+
+
+	if (temp->n > 127)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_num);
+		fclose(info_f.file);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
+
+	printf("%c\n", temp->n);
+}
