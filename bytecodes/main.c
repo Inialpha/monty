@@ -1,6 +1,6 @@
 #include "monty.h"
 
-file_info info_f = {0, 0, NULL, NULL, NULL, NULL, NULL};
+file_info info_f = {0, 0, NULL, NULL, NULL, NULL, NULL, NULL};
 
 /**
  * main - Entry point
