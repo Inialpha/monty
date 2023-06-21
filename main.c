@@ -47,11 +47,11 @@ void readline(stack_t *stack, FILE *file)
 	while (fgets(content, MAX_LENGHT, file) != NULL)
 	{
 		info_f.line_num = counter;
+		info_f.content = content;
 		perser(content);
 		if (info_f.opcode[0] == '#')
 			continue;
 		execute(&stack, counter);
-		info_f.content = content;
 		counter++;
 
 	}
