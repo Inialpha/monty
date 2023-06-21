@@ -43,14 +43,14 @@ void pchar(stack_t **stack, unsigned int line_num)
 		exit(EXIT_FAILURE);
 	}
 
-/**
- * if (temp->n > 127)
-*	{
-*		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_num);
-*		fclose(info_f.file);
-*		free_stack(stack);
-*		exit(EXIT_FAILURE);
-*	}
-*/
+
+	if (temp->n > 127)
+	{
+		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_num);
+		fclose(info_f.file);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
+
 	printf("%c\n", temp->n);
 }
