@@ -3,7 +3,7 @@
  * mul - multiplies the top element of
  * the from top
  * @stack: pointer to the top of the stack.
- * @line_number: line index
+ * @line_num: line index
  */
 void mul(stack_t **stack, unsigned int line_num)
 {
