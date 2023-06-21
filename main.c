@@ -48,6 +48,8 @@ void readline(stack_t *stack, FILE *file)
 	{
 		info_f.line_num = counter;
 		perser(content);
+		if (info_f.opcode[0] == '#')
+			continue;
 		execute(&stack, counter);
 		info_f.content = content;
 		counter++;
