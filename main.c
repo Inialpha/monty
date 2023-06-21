@@ -1,6 +1,6 @@
 #include "monty.h"
 
-file_info info_f = {0, 0, NULL, NULL, NULL, NULL, NULL, NULL};
+file_info info_f = {0, 0, NULL, NULL, NULL, NULL, NULL};
 
 /**
  * main - Entry point
@@ -26,9 +26,7 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	info_f.file = file;
 	readline(stack, file);
-	fclose(file);
 
 	return (0);
 }
@@ -47,14 +45,12 @@ void readline(stack_t *stack, FILE *file)
 	while (fgets(content, MAX_LENGHT, file) != NULL)
 	{
 		info_f.line_num = counter;
-		info_f.content = content;
 		perser(content);
 		execute(&stack, counter);
+		info_f.content = content;
 		counter++;
 
 	}
-
-	free_stack(&stack);
 }
 
 /**
@@ -68,12 +64,13 @@ void perser(char *content)
 {
 	char *arg;
 	char *opcode;
+	char *content_copy;
 
+	content_copy = my_strdup(content);
 
-	opcode = strtok(content, " \n\t");
+	opcode = strtok(content_copy, " \n\t");
 	arg = strtok(NULL, " \n\t");
 	info_f.arg = arg;
 	info_f.opcode = opcode;
-
 
 }
