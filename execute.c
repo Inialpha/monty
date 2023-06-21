@@ -12,7 +12,8 @@ void execute(stack_t **stack, unsigned int line_num)
 	instruction_t op[] = {
 		{"push", push}, {"pop", pop}, {"pint", pint}, {"pall", pall},
 		{"swap", swap}, {"add", add}, {"sub", sub}, {"div", op_div},
-		{"mul", mul}, {"nop", nop}, {"mod", mod}, {NULL, NULL}};
+		{"mul", mul}, {"nop", nop}, {"mod", mod},
+		{"pchar", pchar}, {NULL, NULL}};
 
 	for (i = 0; op[i].opcode && info_f.opcode; i++)
 	{
