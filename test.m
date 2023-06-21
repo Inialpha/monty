@@ -5,7 +5,7 @@ push 4
 push 5
 pint
 pall
-add
+sub
 pall
 pop
 pall
