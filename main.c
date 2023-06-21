@@ -1,6 +1,6 @@
 #include "monty.h"
 
-file_info info_f = {0, 0, NULL, NULL, NULL, NULL, NULL};
+file_info info_f = {0, 0, NULL, NULL, NULL, NULL, NULL, NULL};
 
 /**
  * main - Entry point
@@ -26,6 +26,7 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
+	info_f.file = file;
 	readline(stack, file);
 	fclose(file);
 

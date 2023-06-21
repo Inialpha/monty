@@ -62,6 +62,7 @@ typedef struct file_information
 	char *content;
 	char *opcode;
 	char *arg;
+	FILE *file;
 	stack_t *head;
 	stack_t *tail;
 } file_info;
