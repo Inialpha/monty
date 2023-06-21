@@ -28,7 +28,6 @@ int main(int argc, char **argv)
 	}
 	readline(stack, file);
 
-	fclose(file);
 	return (0);
 }
 
@@ -52,7 +51,6 @@ void readline(stack_t *stack, FILE *file)
 		counter++;
 
 	}
-	free_stack(&stack);
 }
 
 /**
@@ -66,9 +64,11 @@ void perser(char *content)
 {
 	char *arg;
 	char *opcode;
+	char *content_copy;
 
+	content_copy = my_strdup(content);
 
-	opcode = strtok(content, " \n\t");
+	opcode = strtok(content_copy, " \n\t");
 	arg = strtok(NULL, " \n\t");
 	info_f.arg = arg;
 	info_f.opcode = opcode;
