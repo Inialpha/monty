@@ -90,9 +90,10 @@ void queue(stack_t **stack, unsigned int line_number);
 void readline(stack_t *stack, FILE *file);
 void perser(char *content);
 void pint(stack_t **stack, unsigned int line_num);
-void execute(stack_t *stack, unsigned int line_num);
-void pall(stack_t **stack, unsigned int line_num);
+void execute(stack_t **stack, unsigned int line_num);
 void print_stack(stack_t **stack, unsigned int line_num);
 
+void push_stack(stack_t **stack, int value);
 char *my_strdup(const char *str);
+int is_integer(char *str);
 #endif

@@ -46,7 +46,7 @@ void readline(stack_t *stack, FILE *file)
 	{
 		info_f.line_num = counter;
 		perser(content);
-		execute(stack, counter);
+		execute(&stack, counter);
 		info_f.content = content;
 		counter++;
 
@@ -72,4 +72,5 @@ void perser(char *content)
 	arg = strtok(NULL, " \n\t");
 	info_f.arg = arg;
 	info_f.opcode = opcode;
+
 }

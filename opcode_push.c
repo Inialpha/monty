@@ -1,16 +1,15 @@
 #include "monty.h"
 
 /**
- * opcode_push - Pushes an element to the stack.
+ * push - Pushes an element to the stack.
  * @stack: Double pointer to the stack.
  * @line_number: Line number of the opcode in the Monty file.
  */
-void opcode_push(stack_t **stack, unsigned int line_number)
+void push(stack_t **stack, unsigned int line_number)
 {
 	char *arg = info_f.arg;
 	int value;
 
-	arg = strtok(NULL, MONTY_DELIMS);
 	if (arg == NULL || !is_integer(arg))
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
@@ -19,6 +18,7 @@ void opcode_push(stack_t **stack, unsigned int line_number)
 
 	value = atoi(arg);
 	push_stack(stack, value);
+
 }
 
 /**

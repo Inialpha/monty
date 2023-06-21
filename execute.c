@@ -6,17 +6,18 @@
  * @line_num: line index number
  */
 
-void execute(stack_t *stack, unsigned int line_num)
+void execute(stack_t **stack, unsigned int line_num)
 {
 	int i;
 	instruction_t op[] = {
-		{"pop", pop}, {"pint", pint}, {"pall", pall}, {NULL, NULL}};
+		{"push", push}, {"pop", pop}, {"pint", pint}, {"pall", pall},
+		{"swap", swap}, {NULL, NULL}};
 
 	for (i = 0; op[i].opcode && info_f.opcode; i++)
 	{
 		if (strcmp(op[i].opcode, info_f.opcode) == 0)
 		{
-			op[i].f(&stack, line_num);
+			op[i].f(stack, line_num);
 			return;
 		}
 
