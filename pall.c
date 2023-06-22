@@ -63,7 +63,7 @@ void pstr_stack(stack_t **stack, unsigned int line_num)
 
 	while (temp)
 	{
-		if (temp->n <= 0 || temp-> > 127)
+		if (temp->n <= 0 || temp->n > 127)
 			break;
 		printf("%c", temp->n);
 		temp = temp->next;
