@@ -62,7 +62,7 @@ void pstr_stack(stack_t **stack, unsigned int line_num)
 		return;
 	}
 
-	if ((n >= 65 && n <= 909) || (n >= 97 && n <= 122))
+	if ((n >= 65 && n <= 90) || (n >= 97 && n <= 122))
 	{
 		while (temp)
 		{
