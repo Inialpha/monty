@@ -69,5 +69,5 @@ void pstr_stack(stack_t **stack, unsigned int line_num)
 		temp = temp->next;
 	}
 	printf("\n");
-	
+
 }
