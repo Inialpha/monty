@@ -13,7 +13,11 @@ void execute(stack_t **stack, unsigned int line_num)
 		{"push", push}, {"pop", pop}, {"pint", pint}, {"pall", pall},
 		{"swap", swap}, {"add", add}, {"sub", sub}, {"div", op_div},
 		{"mul", mul}, {"nop", nop}, {"mod", mod},
+<<<<<<< HEAD
 		{"pchar", pchar}, {"pstr", pstr}, {"rotr", rotr}, {NULL, NULL}};
+=======
+		{"pchar", pchar}, {"pstr", pstr}, {"rotl", rotl}, {NULL, NULL}};
+>>>>>>> 80fdebd7ebd6af5b1a2bf37fda22497470ba2439
 
 	for (i = 0; op[i].opcode && info_f.opcode; i++)
 	{
