@@ -53,7 +53,6 @@ void pstr(stack_t **stack, unsigned int line_num)
 void pstr_stack(stack_t **stack, unsigned int line_num)
 {
 	stack_t *temp = *stack;
-	int n = temp->n;
 
 	(void)line_num;
 	if (!stack || !(*stack))
@@ -62,13 +61,13 @@ void pstr_stack(stack_t **stack, unsigned int line_num)
 		return;
 	}
 
-	if ((n >= 65 && n <= 90) || (n >= 97 && n <= 122))
+	while (temp)
 	{
-		while (temp)
-		{
-			printf("%c", temp->n);
-			temp = temp->next;
-		}
-		printf("\n");
+		if (temp->n <= 0 || temp-> > 127)
+			break;
+		printf("%c", temp->n);
+		temp = temp->next;
 	}
+	printf("\n");
+	
 }
