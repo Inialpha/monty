@@ -44,14 +44,13 @@ void pchar(stack_t **stack, unsigned int line_num)
 	}
 
 
-	if ((temp->n >= 65 && temp->n <= 90) || (temp->n >= 97 && temp->n <= 122))
-		printf("%c\n", temp->n);
-	else
+	if ((temp->n > 127 || temp->n < 0))
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", line_num);
 		fclose(info_f.file);
 		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
+	printf("%c\n", temp->n);
 
 }
