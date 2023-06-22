@@ -29,7 +29,10 @@ void execute(stack_t **stack, unsigned int line_num)
 
 	if (op[i].opcode == NULL && info_f.opcode)
 	{
-		fprintf(stderr, "L%d: unknown instruction %s\n", line_num,  info_f.opcode);
-		exit(EXIT_FAILURE);
+		if (info_f.opcode[0] != '#')
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_num,  info_f.opcode);
+			exit(EXIT_FAILURE);
+		}
 	}
 }
