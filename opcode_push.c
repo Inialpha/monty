@@ -19,7 +19,10 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 
 	value = atoi(arg);
-	push_stack(stack, value);
+	if (info_f.flag == 0)
+		push_stack(stack, value);
+	else if (info_f.flag == 1)
+		push_queue(stack, value);
 
 }
 
@@ -50,12 +53,53 @@ void push_stack(stack_t **stack, int value)
 	*stack = new_node;
 }
 
+
+/**
+ * push_queue - Pushes an element to the stack.
+ * @stack: Double pointer to the stack.
+ * @value: Value to push to the stack.
+ */
+void push_queue(stack_t **stack, int value)
+{
+	stack_t *tail;
+
+	stack_t *new = malloc(sizeof(stack_t));
+
+	if (new == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		free_stack(stack);
+		fclose(info_f.file);
+		exit(EXIT_FAILURE);
+	}
+
+
+	new->n = value;
+	new->prev = NULL;
+	new->next = NULL;
+
+	if (*stack == NULL)
+		*stack = new;
+	else
+	{
+		tail = *stack;
+		while (tail->next)
+			tail = tail->next;
+		tail->next = new;
+		new->prev = tail;
+		tail = new;
+	}
+
+
+}
 /**
  * is_integer - Checks if a string represents an integer.
  * @str: String to check.
  *
  * Return: 1 if str is an integer, 0 otherwise.
  */
+
+
 int is_integer(char *str)
 {
 	int i = 0;

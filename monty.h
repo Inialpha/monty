@@ -58,7 +58,7 @@ typedef struct intstuction_s
 typedef struct file_information
 {
 	int line_num;
-	int stack_size;
+	int flag;
 	char *content;
 	char *opcode;
 	char *arg;
@@ -85,7 +85,7 @@ void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
 void rotl(stack_t **stack, unsigned int line_number);
 void rotr(stack_t **stack, unsigned int line_number);
-void stack(stack_t **stack, unsigned int line_number);
+void op_stack(stack_t **stack, unsigned int line_number);
 void queue(stack_t **stack, unsigned int line_number);
 
 
@@ -96,6 +96,8 @@ void print_stack(stack_t **stack, unsigned int line_num);
 void pstr_stack(stack_t **stack, unsigned int line_num);
 
 void push_stack(stack_t **stack, int value);
+
+void push_queue(stack_t **stack, int value);
 char *my_strdup(const char *str);
 int is_integer(char *str);
 
