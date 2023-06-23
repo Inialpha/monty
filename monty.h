@@ -36,7 +36,7 @@ typedef struct stack_s
  */
 
 
-typedef struct intstuction_s
+typedef struct instruction_s
 {
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
@@ -48,9 +48,11 @@ typedef struct intstuction_s
  * @line_num: the line number
  * @content: the content of the line
  * @opcode: the opcode command
- * @stack_size: size of the stack
+ * @flag: size of the stack
  * @head: pointer to the first node in the stack
  * @tail: pointer to the last node in the stack
+ * @arg: current argument
+ * @file: current file
  *
  * Description: the current file informations
  */

@@ -41,30 +41,17 @@ void print_stack(stack_t **stack, unsigned int line_num)
 
 void pstr(stack_t **stack, unsigned int line_num)
 {
-	pstr_stack(stack, line_num);
-}
-
-/**
- * pstr_stack - print all the data in the stack
- * @stack: pointer to the top of the stack
- * @line_num: line index
- */
-
-void pstr_stack(stack_t **stack, unsigned int line_num)
-{
-	stack_t *temp = *stack;
-
+	stack_t *temp;
 	(void)line_num;
-	if (!stack || !(*stack))
-	{
-		printf("\n");
-		return;
-	}
 
+
+	temp = *stack;
 	while (temp)
 	{
 		if (temp->n <= 0 || temp->n > 127)
+		{
 			break;
+		}
 		printf("%c", temp->n);
 		temp = temp->next;
 	}
